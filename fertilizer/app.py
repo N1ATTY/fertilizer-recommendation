@@ -8,7 +8,7 @@ import pandas as pd
 from weather import  weather_fetch
 from fertilizer import Nlow, KHigh, PHigh,NHigh, Klow,Plow
 def fert_recommend():
-    df = pd.read_csv('fertilizer.csv')
+    df = pd.read_csv('fertilizer/fertilizer.csv')
     st.title("Fertelizer Suggestion")
     st.subheader("here you can get Fertelizer Suggestion based on the soil content")
     col1,col2,col3=st.columns(3)
@@ -18,7 +18,7 @@ def fert_recommend():
         P = st.number_input("Enter the Phosphoures Level", min_value=0, max_value=110, value=90, step=1, help="Pospherus Level should be in the given range")
     with col3:
         K = st.number_input("Enter Potassium Level", min_value=0, max_value=110, value=25, step=1, help="potassium Level should be within the given range")
-    df1 = pd.read_csv("distnict-data.csv")
+    df1 = pd.read_csv("fertilizer/distnict-data.csv")
     city = df1['City'].unique().tolist()
     city_name = st.selectbox(label = "Select city", options=city)
     crop_op = df['Crop'].unique().tolist()
